@@ -41,7 +41,7 @@ namespace TreeCalculator
 
             Tree workingTree = new Tree(weakestCalculationSymbol.Symbol);
             string[] left = equation.Take(weakestCalculationSymbol.index).ToArray();
-            string[] right = equation.Skip(weakestCalculationSymbol.index + 1).Take(weakestCalculationSymbol.index).ToArray();
+            string[] right = equation.Skip(weakestCalculationSymbol.index + 1).Take(equation.Length-weakestCalculationSymbol.index+1).ToArray();
 
             Tree.JoinLeft(workingTree, EquationToTreeWorker(left));
             Tree.JoinRight(workingTree, EquationToTreeWorker(right));
@@ -53,11 +53,11 @@ namespace TreeCalculator
         static void Main(string[] args)
         {
             Console.WriteLine("Start");
-            string equation = "5+3";
+            string equation = "5+3*4";
             Tree tree = EquationToTree(equation);
             Tree.Print(tree);
 
-            Console.WriteLine("End");
+            Console.WriteLine("End"); 
         }
     }
 }

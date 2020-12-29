@@ -19,15 +19,22 @@ namespace TreeCalculator
 
         public static int Size(Tree tree)
         {
-            if (tree.Left != null)
+            if (tree == null)
             {
-                return 1 + Size(tree.Left);
+                return 0;
             }
-            else if (tree.Right != null)
+            else
             {
-                return 1 + Size(tree.Right);
+                int leftDepth = Size(tree.Left);
+                int rightDepth = Size(tree.Right);
+
+                if (leftDepth > rightDepth)
+                {
+                    return (leftDepth + 1);
+                }
+                    
+                return rightDepth + 1;
             }
-            return 1;
         }
 
         public static void Print(Tree tree)
