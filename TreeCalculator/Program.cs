@@ -8,28 +8,14 @@ namespace TreeCalculator
     {
         public static Tree EquationToTree(string equation)
         {
-            string[] brokenDown = Split(equation);
-            Tree tree = EquationToTreeWorker(brokenDown);
-
-            return tree;
+            return EquationToTreeWorker(equation);
         }
 
-        private static string[] Split(string equation)
-        {
-            string[] result = new string[equation.Length];
-
-            for(int i = 0; i < equation.Length; i++){
-                result[i] = equation[i].ToString();
-            }
-
-            return result;
-        }
-
-        public static Tree EquationToTreeWorker(string[] equation)
+        public static Tree EquationToTreeWorker(string equation)
         {
             if (equation.Length == 1)
             {
-                return new Tree(equation[0]);
+                return new Tree(equation[0].ToString());
             }
 
             WeakestCalculationSymbol weakestCalculationSymbol = WeakestCalculationSymbol.fromCalculation(equation);
@@ -40,8 +26,8 @@ namespace TreeCalculator
             }
 
             Tree workingTree = new Tree(weakestCalculationSymbol.Symbol);
-            string[] left = equation.Take(weakestCalculationSymbol.index).ToArray();
-            string[] right = equation.Skip(weakestCalculationSymbol.index + 1).Take(equation.Length-weakestCalculationSymbol.index+1).ToArray();
+            string left = equation.Substring(0, weakestCalculationSymbol.index);
+            string right = equation.Substring(weakestCalculationSymbol.index + 1);
 
             Tree.JoinLeft(workingTree, EquationToTreeWorker(left));
             Tree.JoinRight(workingTree, EquationToTreeWorker(right));
