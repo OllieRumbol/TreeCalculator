@@ -17,7 +17,7 @@ namespace TreeCalculator
 
             if (weakestCalculationSymbol.Symbol == string.Empty)
             {
-                throw new Exception();
+                throw new Exception("Invalid symbol");
             }
 
             Tree workingTree = new Tree(weakestCalculationSymbol.Symbol);
@@ -30,12 +30,41 @@ namespace TreeCalculator
             return workingTree;
         }
 
+        public static int TreeToInt(Tree tree)
+        {
+            if(tree.Left == null && tree.Right == null)
+            {
+                return int.Parse(tree.Node);
+            }
+
+            if (tree.Node == "+")
+            {
+                return TreeToInt(tree.Left) + TreeToInt(tree.Right);
+            }
+            else if (tree.Node == "-")
+            {
+                return TreeToInt(tree.Left) - TreeToInt(tree.Right);
+            }
+            else if (tree.Node == "*")
+            {
+                return TreeToInt(tree.Left) * TreeToInt(tree.Right);
+            }
+            else if (tree.Node == "/")
+            {
+                return TreeToInt(tree.Left) / TreeToInt(tree.Right);
+            }
+
+            throw new Exception("Invalid equation");
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Start");
             string equation = "5+3*4";
             Tree tree = EquationToTree(equation);
             Tree.Print(tree);
+            int result = TreeToInt(tree);
+            Console.WriteLine($"The answer is {result}");
 
             Console.WriteLine("End"); 
         }
