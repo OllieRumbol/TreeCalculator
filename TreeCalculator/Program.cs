@@ -8,11 +8,6 @@ namespace TreeCalculator
     {
         public static Tree EquationToTree(string equation)
         {
-            return EquationToTreeWorker(equation);
-        }
-
-        public static Tree EquationToTreeWorker(string equation)
-        {
             if (equation.Length == 1)
             {
                 return new Tree(equation[0].ToString());
@@ -29,11 +24,10 @@ namespace TreeCalculator
             string left = equation.Substring(0, weakestCalculationSymbol.index);
             string right = equation.Substring(weakestCalculationSymbol.index + 1);
 
-            Tree.JoinLeft(workingTree, EquationToTreeWorker(left));
-            Tree.JoinRight(workingTree, EquationToTreeWorker(right));
+            Tree.JoinLeft(workingTree, EquationToTree(left));
+            Tree.JoinRight(workingTree, EquationToTree(right));
 
             return workingTree;
-
         }
 
         static void Main(string[] args)
