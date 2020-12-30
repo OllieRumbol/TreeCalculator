@@ -13,7 +13,7 @@ namespace TreeCalculatorUnitTests
         }
 
         [TestMethod]
-        public void EquationToTree_Test1()
+        public void EquationToTree_Addition()
         {
             //Associate
             string equation = "5+3";
@@ -22,9 +22,9 @@ namespace TreeCalculatorUnitTests
             Tree expectedTree = SpecificLogic.EquationToTree(equation);
 
             //Assert
-            Assert.AreEqual(expectedTree.Node, "+");
-            Assert.AreEqual(expectedTree.Left.Node, "5");
-            Assert.AreEqual(expectedTree.Right.Node, "3");
+            Assert.AreEqual("+", expectedTree.Node);
+            Assert.AreEqual("5", expectedTree.Left.Node);
+            Assert.AreEqual("3", expectedTree.Right.Node);
         }
 
         [TestMethod]
@@ -44,7 +44,7 @@ namespace TreeCalculatorUnitTests
         }
 
         [TestMethod]
-        public void TreeToInt_Test1()
+        public void TreeToInt_Addition()
         {
             //Associate
             Tree tree = new Tree("+");
@@ -55,11 +55,11 @@ namespace TreeCalculatorUnitTests
             int answer = SpecificLogic.TreeToInt(tree);
 
             //Assert
-            Assert.AreEqual(answer, 8);
+            Assert.AreEqual(8, answer);
         }
 
         [TestMethod]
-        public void TreeToInt_Test2()
+        public void TreeToInt_Multiplication()
         {
             //Associate
             Tree tree = new Tree("+");
@@ -72,11 +72,11 @@ namespace TreeCalculatorUnitTests
             int answer = SpecificLogic.TreeToInt(tree);
 
             //Assert
-            Assert.AreEqual(answer, 17);
+            Assert.AreEqual(17, answer);
         }
 
         [TestMethod]
-        public void TreeToInt_Test3()
+        public void TreeToInt_Division()
         {
             //Associate
             Tree tree = new Tree("*");
@@ -89,7 +89,7 @@ namespace TreeCalculatorUnitTests
             int answer = SpecificLogic.TreeToInt(tree);
 
             //Assert
-            Assert.AreEqual(answer, 25);
+            Assert.AreEqual(25, answer);
         }
 
         [TestCleanup]
