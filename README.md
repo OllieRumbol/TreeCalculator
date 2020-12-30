@@ -20,7 +20,7 @@ This repo's goal is to turn equations into trees and trees into a solution
 * Depending on the order of how the equation is solved different answers can be produced. 
 * 5 + 3 * 4 can equal 17 or 32.
 * This can be addressed by following BIDMAS. BIDMAS stands for Brackets, Indices, Division, Multiplication, Addition, Subtraction.
-* The tree is above is solved from bottom up there for stronger binding calculation are nearer the bottom.
+* The tree above is solved from bottom up thereford stronger binding calculations are nearer the bottom.
 
 # There are two different types of equations
 - Two numbers and a symbol, for example 
