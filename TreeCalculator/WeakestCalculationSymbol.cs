@@ -10,8 +10,13 @@ namespace TreeCalculator
 
         public int index { get; set; }
 
+        public bool IsSingleRight { get; set; }
+
+        public bool IsSingleLeft { get; set; }
+
         public static WeakestCalculationSymbol fromCalculation(string equation)
         {
+            // \((\N+)\)
             for (int i = 0; i < equation.Length; i++)
             {
                 string value = equation[i].ToString();
@@ -20,7 +25,9 @@ namespace TreeCalculator
                     return new WeakestCalculationSymbol
                     {
                         Symbol = value,
-                        index = i
+                        index = i,
+                        IsSingleLeft = false,
+                        IsSingleRight = false
                     };
                 }
             }
@@ -33,7 +40,9 @@ namespace TreeCalculator
                     return new WeakestCalculationSymbol
                     {
                         Symbol = value,
-                        index = i
+                        index = i,
+                        IsSingleLeft = false,
+                        IsSingleRight = false
                     };
                 }
             }
@@ -46,7 +55,9 @@ namespace TreeCalculator
                     return new WeakestCalculationSymbol
                     {
                         Symbol = value,
-                        index = i
+                        index = i,
+                        IsSingleLeft = false,
+                        IsSingleRight = false
                     };
                 }
             }
@@ -59,16 +70,59 @@ namespace TreeCalculator
                     return new WeakestCalculationSymbol
                     {
                         Symbol = value,
-                        index = i
+                        index = i,
+                        IsSingleLeft = false,
+                        IsSingleRight = false
                     };
                 }
             }
 
-            return new WeakestCalculationSymbol
+            for (int i = 0; i < equation.Length; i++)
             {
-                Symbol = string.Empty,
-                index = 0
-            };
+                string value = equation[i].ToString();
+                if (value == "^")
+                {
+                    return new WeakestCalculationSymbol
+                    {
+                        Symbol = value,
+                        index = i,
+                        IsSingleLeft = false,
+                        IsSingleRight = false
+                    };
+                }
+            }
+
+            for (int i = 0; i < equation.Length; i++)
+            {
+                string value = equation[i].ToString();
+                if (value == "√")
+                {
+                    return new WeakestCalculationSymbol
+                    {
+                        Symbol = value,
+                        index = i,
+                        IsSingleLeft = false,
+                        IsSingleRight = true
+                    };
+                }
+            }
+
+            for (int i = 0; i < equation.Length; i++)
+            {
+                string value = equation[i].ToString();
+                if (value == "!")
+                {
+                    return new WeakestCalculationSymbol
+                    {
+                        Symbol = value,
+                        index = i,
+                        IsSingleLeft = true,
+                        IsSingleRight = false
+                    };
+                }
+            }
+
+            throw new Exception("Invalid symbol");
         }
     }
 }
