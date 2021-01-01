@@ -14,113 +14,156 @@ namespace TreeCalculator
 
         public bool IsSingleLeft { get; set; }
 
+        public string equation  { get; set; }
+
         public static WeakestCalculationSymbol fromCalculation(string equation)
         {
             // \((\N+)\)
-            for (int i = 0; i < equation.Length; i++)
+            for (int i = equation.Length-1; i >= 0; i--)
             {
                 string value = equation[i].ToString();
                 if (value == "-")
                 {
-                    return new WeakestCalculationSymbol
+                    if (BracketsHelper.IsSymbolSurroundedWithBrackets(equation, i) == false)
                     {
-                        Symbol = value,
-                        index = i,
-                        IsSingleLeft = false,
-                        IsSingleRight = false
-                    };
+                        return new WeakestCalculationSymbol
+                        {
+                            Symbol = value,
+                            index = i,
+                            IsSingleLeft = false,
+                            IsSingleRight = false,
+                            equation = equation
+                        };
+                    }
+
                 }
             }
 
-            for (int i = 0; i < equation.Length; i++)
+            for (int i = equation.Length - 1; i >= 0; i--)
             {
                 string value = equation[i].ToString();
                 if (value == "+")
                 {
-                    return new WeakestCalculationSymbol
+                    if (BracketsHelper.IsSymbolSurroundedWithBrackets(equation, i) == false)
                     {
-                        Symbol = value,
-                        index = i,
-                        IsSingleLeft = false,
-                        IsSingleRight = false
-                    };
+                        return new WeakestCalculationSymbol
+                        {
+                            Symbol = value,
+                            index = i,
+                            IsSingleLeft = false,
+                            IsSingleRight = false,
+                            equation = equation
+                        };
+                    }
                 }
             }
 
-            for (int i = 0; i < equation.Length; i++)
+            for (int i = equation.Length - 1; i >= 0; i--)
             {
                 string value = equation[i].ToString();
                 if (value == "*")
                 {
-                    return new WeakestCalculationSymbol
+                    if (BracketsHelper.IsSymbolSurroundedWithBrackets(equation, i) == false)
                     {
-                        Symbol = value,
-                        index = i,
-                        IsSingleLeft = false,
-                        IsSingleRight = false
-                    };
+                        return new WeakestCalculationSymbol
+                        {
+                            Symbol = value,
+                            index = i,
+                            IsSingleLeft = false,
+                            IsSingleRight = false,
+                            equation = equation
+                        };
+                    }
                 }
             }
 
-            for (int i = 0; i < equation.Length; i++)
+            for (int i = equation.Length - 1; i >= 0; i--)
             {
                 string value = equation[i].ToString();
                 if (value == "/")
                 {
-                    return new WeakestCalculationSymbol
+                    if (BracketsHelper.IsSymbolSurroundedWithBrackets(equation, i) == false)
                     {
-                        Symbol = value,
-                        index = i,
-                        IsSingleLeft = false,
-                        IsSingleRight = false
-                    };
+                        return new WeakestCalculationSymbol
+                        {
+                            Symbol = value,
+                            index = i,
+                            IsSingleLeft = false,
+                            IsSingleRight = false,
+                            equation = equation
+                        };
+                    }
                 }
             }
 
-            for (int i = 0; i < equation.Length; i++)
+            for (int i = equation.Length - 1; i >= 0; i--)
             {
                 string value = equation[i].ToString();
                 if (value == "^")
                 {
-                    return new WeakestCalculationSymbol
+                    if (BracketsHelper.IsSymbolSurroundedWithBrackets(equation, i) == false)
                     {
-                        Symbol = value,
-                        index = i,
-                        IsSingleLeft = false,
-                        IsSingleRight = false
-                    };
+                        return new WeakestCalculationSymbol
+                        {
+                            Symbol = value,
+                            index = i,
+                            IsSingleLeft = false,
+                            IsSingleRight = false,
+                            equation = equation
+                        };
+                    }
                 }
             }
 
-            for (int i = 0; i < equation.Length; i++)
+            for (int i = equation.Length - 1; i >= 0; i--)
             {
                 string value = equation[i].ToString();
                 if (value == "√")
                 {
-                    return new WeakestCalculationSymbol
+                    if (BracketsHelper.IsSymbolSurroundedWithBrackets(equation, i) == false)
                     {
-                        Symbol = value,
-                        index = i,
-                        IsSingleLeft = false,
-                        IsSingleRight = true
-                    };
+                        return new WeakestCalculationSymbol
+                        {
+                            Symbol = value,
+                            index = i,
+                            IsSingleLeft = false,
+                            IsSingleRight = true,
+                            equation = equation
+                        };
+                    }
+                }
+            }
+
+            for (int i = equation.Length - 1; i >= 0; i--)
+            {
+                string value = equation[i].ToString();
+                if (value == "!")
+                {
+                    if (BracketsHelper.IsSymbolSurroundedWithBrackets(equation, i) == false)
+                    {
+                        return new WeakestCalculationSymbol
+                        {
+                            Symbol = value,
+                            index = i,
+                            IsSingleLeft = true,
+                            IsSingleRight = false,
+                            equation = equation
+                        };
+                    }
                 }
             }
 
             for (int i = 0; i < equation.Length; i++)
             {
                 string value = equation[i].ToString();
-                if (value == "!")
+                if (value == "(")
                 {
-                    return new WeakestCalculationSymbol
-                    {
-                        Symbol = value,
-                        index = i,
-                        IsSingleLeft = true,
-                        IsSingleRight = false
-                    };
+                    equation = BracketsHelper.RemoveMostInnerBracketsFromEquation(equation);
+                    return fromCalculation(equation);
                 }
             }
+
+
 
             throw new Exception("Invalid symbol");
         }

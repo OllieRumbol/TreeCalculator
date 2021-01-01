@@ -9,7 +9,7 @@ namespace TreeCalculator
         static void Main(string[] args)
         {
             Console.WriteLine("Start");
-            string equation = "5!+5";
+            string equation = "(6+3)*4";
             Tree tree = SpecificLogic.EquationToTree(equation);
             Tree.Print(tree);
             int result = SpecificLogic.TreeToInt(tree);

@@ -7,7 +7,7 @@ using TreeCalculator;
 namespace TreeCalculatorUnitTests
 {
     [TestClass]
-    public class TreeUnitTest
+    public class TreeUnitTests
     {
         [TestInitialize]
         public void StartUp()

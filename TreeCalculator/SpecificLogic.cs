@@ -25,8 +25,11 @@ namespace TreeCalculator
             //  b. √100
             //  c. Note that there are two variants, symbol on the left or right
             //The below code deals with building trees from equations in these different formats
+            //And then brackets just make everything worse
+            //Weakness is used to follow BIDMAS so what calculation bind the least.
 
             WeakestCalculationSymbol weakestCalculationSymbol = WeakestCalculationSymbol.fromCalculation(equation);
+            equation = weakestCalculationSymbol.equation;
 
             Tree workingTree = new Tree(weakestCalculationSymbol.Symbol);
 
