@@ -16,7 +16,7 @@ namespace TreeCalculator
 
         public string equation  { get; set; }
 
-        public static WeakestCalculationSymbol fromCalculation(string equation)
+        public static WeakestCalculationSymbol FromCalculation(string equation)
         {
             // \((\N+)\)
             for (int i = equation.Length-1; i >= 0; i--)
@@ -159,7 +159,7 @@ namespace TreeCalculator
                 if (value == "(")
                 {
                     equation = BracketsHelper.RemoveMostInnerBracketsFromEquation(equation);
-                    return fromCalculation(equation);
+                    return FromCalculation(equation);
                 }
             }
 

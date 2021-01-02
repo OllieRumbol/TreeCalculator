@@ -28,7 +28,7 @@ namespace TreeCalculator
             //And then brackets just make everything worse
             //Weakness is used to follow BIDMAS so what calculation bind the least.
 
-            WeakestCalculationSymbol weakestCalculationSymbol = WeakestCalculationSymbol.fromCalculation(equation);
+            WeakestCalculationSymbol weakestCalculationSymbol = WeakestCalculationSymbol.FromCalculation(equation);
             equation = weakestCalculationSymbol.equation;
 
             Tree workingTree = new Tree(weakestCalculationSymbol.Symbol);
