@@ -20,11 +20,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "2+4+6+8";
-            int answer = 20;
+            double answer = 20;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -35,11 +35,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "10-5-2";
-            int answer = 3;
+            double answer = 3;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -50,11 +50,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "8*8*2";
-            int answer = 128;
+            double answer = 128;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -65,11 +65,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "20/5/2";
-            int answer = 2;
+            double answer = 2;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -80,11 +80,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "6^3";
-            int answer = 216;
+            double answer = 216;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -95,11 +95,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "√64";
-            int answer = 8;
+            double answer = 8;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -110,11 +110,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "7!";
-            int answer = 5040;
+            double answer = 5040;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -125,11 +125,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "(6+3)*4";
-            int answer = 36;
+            double answer = 36;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -140,11 +140,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "√(102-2)";
-            int answer = 10;
+            double answer = 10;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -155,11 +155,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "(2*2+1)!";
-            int answer = 120;
+            double answer = 120;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);
@@ -170,11 +170,11 @@ namespace TreeCalculatorUnitTests
         {
             //Associate
             string equation = "(10/2*5)+(7-2)";
-            int answer = 30;
+            double answer = 30;
 
             //Act
             Tree tree = SpecificLogic.EquationToTree(equation);
-            int result = SpecificLogic.TreeToInt(tree);
+            double result = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(answer, result);

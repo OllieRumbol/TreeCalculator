@@ -52,7 +52,7 @@ namespace TreeCalculatorUnitTests
             tree.Right = new Tree("3");
 
             //Act
-            int answer = SpecificLogic.TreeToInt(tree);
+            double answer = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(8, answer);
@@ -69,7 +69,7 @@ namespace TreeCalculatorUnitTests
             tree.Right.Right = new Tree("4");
 
             //Act
-            int answer = SpecificLogic.TreeToInt(tree);
+            double answer = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(17, answer);
@@ -86,7 +86,7 @@ namespace TreeCalculatorUnitTests
             tree.Right = new Tree("5");
 
             //Act
-            int answer = SpecificLogic.TreeToInt(tree);
+            double answer = SpecificLogic.TreeToInt(tree);
 
             //Assert
             Assert.AreEqual(25, answer);

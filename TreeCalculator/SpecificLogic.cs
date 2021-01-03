@@ -8,8 +8,8 @@ namespace TreeCalculator
     {
         public static Tree EquationToTree(string equation)
         {
-            int number;
-            if (int.TryParse(equation, out number))
+            double number;
+            if (Double.TryParse(equation, out number))
             {
                 return new Tree(number.ToString());
             }
@@ -58,11 +58,11 @@ namespace TreeCalculator
             return workingTree;
         }
 
-        public static int TreeToInt(Tree tree)
+        public static Double TreeToInt(Tree tree)
         {
             if (tree.Left == null && tree.Right == null)
             {
-                return int.Parse(tree.Node);
+                return Double.Parse(tree.Node);
             }
 
             if (tree.Node == "+")
@@ -91,8 +91,8 @@ namespace TreeCalculator
             }
             else if (tree.Node == "!")
             {
-                int number = TreeToInt(tree.Left);
-                int result = 1;
+                double number = TreeToInt(tree.Left);
+                double result = 1;
                 while (number != 1)
                 {
                     result = result * number;
