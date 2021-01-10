@@ -10,6 +10,7 @@ namespace TreeCalculator
         {
             // TODO: Equation validation 
             // TODO: Work with negatives e.g. -5 or -71
+            // TODO: Pi
 
             Console.WriteLine("Start");
             string equation = "5.2+5.2";
